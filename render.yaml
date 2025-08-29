@@ -1,11 +1,14 @@
-# En la raíz de tu proyecto backend
-echo 'services:
+services:
   - type: web
     name: regression-backend
     env: java
     plan: free
-    buildCommand: mvn clean package
+    buildCommand: mvn clean package -DskipTests
     startCommand: java -jar target/regresion-0.0.1-SNAPSHOT.jar
     envVars:
       - key: JAVA_VERSION
-        value: 17' > render.yaml
+        value: 17
+      - key: PORT
+        value: 8080
+    healthCheckPath: /api/regression/test
+    autoDeploy: true
