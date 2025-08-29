@@ -15,7 +15,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/regression")
-@CrossOrigin(origins = "http://localhost:4200") // Permitir CORS para Angular
 public class RegressionController {
 
     @Autowired
